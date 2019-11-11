@@ -9,6 +9,21 @@ This is a basic script, utilizing and building upon
 
 to perform an automated install of archlinux in a virtual machine.
 
+# Usage
+
+To build the ISO, enter the `build` directory and run `sudo ./build.sh`.
+Root permissions are required in order for the correct permissions to be
+set within the built image.
+
+The built ISO will by default be placed in `/tmp/archiso-out`.
+
+By default, this ISO will use the install script present in the repo it is
+built from. By modifying `build/config.sh` prior to building, a remote
+repository can be specified which will be cloned at runtime.
+
+More options are available in `install/config.sh` for configuration of the
+installed system.
+
 ## Important note
 
 The created ISO will _completely erase_ the contents of the disk you point it
