@@ -99,13 +99,13 @@ make_clone_installer_at_run_time() {
     cat << EOF > "${work_dir}/airootfs/root/autorun.sh"
 #!/usr/bin/env bash
 set -uxo pipefail
-git clone -b "autoarch-blog" "http://gitolite.lan/autoarch.git" "\${HOME}/autoarch"
+git clone "http://github.com/esotericnonsense/autoarch.git" "\${HOME}/autoarch"
 bash "\${HOME}/autoarch/install/main.sh"
 EOF
 }
 
 make_clone_installer_at_build_time() {
-    git clone -b "autoarch-blog" "http://gitolite.lan/autoarch.git" "${work_dir}/airootfs/root/autoarch"
+    git clone "https://github.com/esotericnonsense/autoarch.git" "${work_dir}/airootfs/root/autoarch"
     cat << EOF > "${work_dir}/airootfs/root/autorun.sh"
 #!/usr/bin/env bash
 set -uxo pipefail
