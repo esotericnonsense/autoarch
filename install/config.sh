@@ -28,13 +28,13 @@ export user="archuser"
 export initial_pass="changeme"
 
 # OPTIONAL: An SSH key that will be added to the created account.
-export ssh_key="ssh-ed25519 ABCDE example"
+# export ssh_key="ssh-ed25519 ABCDE example"
 
 # OPTIONAL: A custom SSH port to be used instead of the default 22.
-export ssh_port="10022"
+# export ssh_port="10022"
 
 # OPTIONAL: A pacman mirror that will be used instead of the defaults.
-export pacman_mirror="http://pacman.lan/archlinux/\$repo/os/\$arch"
+# export pacman_mirror="http://pacman.lan/archlinux/\$repo/os/\$arch"
 
 # OPTIONAL: Create a swap file of this size on the installed system.
 export swap_size="2G"
@@ -42,4 +42,4 @@ export swap_size="2G"
 # OPTIONAL: A dotfiles repository that will be executed as the created account.
 # The repository should contain a `main.sh` file that will perform all of the
 # necessary symlinking.
-export dotfiles_repo="http://gitolite.lan/dotfiles.git"
+# export dotfiles_repo="http://gitolite.lan/dotfiles.git"
