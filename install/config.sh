@@ -6,7 +6,7 @@
 # Configuration variables for the autoarch install script.
 set -euxo pipefail
 
-# The ethernet interface used for networking.
+# The ethernet interface used for networking on the installed system.
 export iface="ens1"
 
 # The timezone of the installed system.

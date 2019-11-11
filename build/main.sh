@@ -11,14 +11,13 @@
 set -euxo pipefail
 
 script_path=$(dirname "$(readlink -f "${0}")")
+# shellcheck source=config.sh
+source "${script_path}/config.sh"
 
-iso_name=autoarch
-iso_label=autoarch_$(git rev-parse HEAD --git-dir="${script_path}" | head -c 8)
+iso_label=${iso_name}_$(git rev-parse HEAD --git-dir="${script_path}" | head -c 8)
 iso_version=$(git rev-parse HEAD --git-dir="${script_path}" | head -c 8)
 install_dir=arch
 arch=$(uname -m)
-work_dir=/tmp/archiso-work
-out_dir=/tmp/archiso-out
 
 umask 0022
 
@@ -67,8 +66,6 @@ EOF
 }
 
 make_networking() {
-    local iface
-    iface="ens1"
     cat << EOF > "${work_dir}/airootfs/etc/systemd/network/20-wired.network"
 [Match]
 Name=${iface}
@@ -84,7 +81,7 @@ EOF
 make_pacman_mirrorlist() {
     local mirrorlist
     mirrorlist="${work_dir}/airootfs/etc/pacman.d/mirrorlist"
-    cat "${mirrorlist}" | grep "Server" | sed 's/^#Server/Server/g' | sort -R \
+    grep "Server" "${mirrorlist}" | sed 's/^#Server/Server/g' | sort -R \
         > "${mirrorlist}.new"
     mv "${mirrorlist}.new" "${mirrorlist}"
 }
@@ -99,13 +96,13 @@ make_clone_installer_at_run_time() {
     cat << EOF > "${work_dir}/airootfs/root/autorun.sh"
 #!/usr/bin/env bash
 set -uxo pipefail
-git clone "http://github.com/esotericnonsense/autoarch.git" "\${HOME}/autoarch"
+git clone "${install_repo}" "\${HOME}/autoarch"
 bash "\${HOME}/autoarch/install/main.sh"
 EOF
 }
 
-make_clone_installer_at_build_time() {
-    git clone "https://github.com/esotericnonsense/autoarch.git" "${work_dir}/airootfs/root/autoarch"
+make_local_installer_at_build_time() {
+    cp -a "${script_path}/.." "${work_dir}/airootfs/root/autoarch"
     cat << EOF > "${work_dir}/airootfs/root/autorun.sh"
 #!/usr/bin/env bash
 set -uxo pipefail
@@ -128,11 +125,11 @@ if [[ \$(tty) == "/dev/tty1" ]]; then
 fi
 EOF
 
-
-    # Option 1
-    make_clone_installer_at_run_time
-    # Option 2
-    #make_clone_installer_at_build_time
+    if [[ -v install_repo ]]; then
+        make_clone_installer_at_run_time
+    else
+        make_local_installer_at_build_time
+    fi
 
     chmod +x "${work_dir}/airootfs/root/autorun.sh"
 }
