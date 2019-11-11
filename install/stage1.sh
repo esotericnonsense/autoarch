@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# SPDX-Copyright: Copyright (c) 2019 Daniel Edgecumbe (esotericnonsense)
+# SPDX-License-Identifier: GPL-2.0-only
+
 # autoarch/install/stage1.sh
 # This script runs as the first stage in order to create the chroot.
 # See 'config.sh' for configuration parameters.

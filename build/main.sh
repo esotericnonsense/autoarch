@@ -1,4 +1,12 @@
 #!/bin/bash
+# SPDX-Copyright: Copyright (c) 2019 Daniel Edgecumbe (esotericnonsense)
+# SPDX-License-Identifier: GPL-2.0-only
+
+# autoarch/build/main.sh
+# This script builds the archiso used for the automated install.
+# It has been adapted from the archiso/baseline.sh script, assumed to be
+# compatible with GPLv2.
+# Source: https://git.archlinux.org/archiso.git
 
 set -euxo pipefail
 

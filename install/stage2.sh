@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# SPDX-Copyright: Copyright (c) 2019 Daniel Edgecumbe (esotericnonsense)
+# SPDX-License-Identifier: GPL-2.0-only
+
 # autoarch/install/stage2.sh
 # This stage runs within the chroot as the root user.
 set -euxo pipefail

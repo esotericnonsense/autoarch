@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# SPDX-Copyright: Copyright (c) 2019 Daniel Edgecumbe (esotericnonsense)
+# SPDX-License-Identifier: GPL-2.0-only
+
 # autoarch/install/config.sh
 # Configuration variables for the autoarch install script.
 set -euxo pipefail
