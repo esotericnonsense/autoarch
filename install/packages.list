@@ -1,0 +1,33 @@
+# autoarch/install/packages.list
+# Packages to install on the new system.
+# One per line. Lines beginning in # are ignored.
+
+base
+linux
+syslinux
+sudo
+openssh
+
+# custom packages below
+base-devel
+shellcheck
+coreutils
+entr
+git
+glibc
+htop
+ncdu
+python
+python-virtualenv
+ranger
+rsync
+the_silver_searcher
+tig
+tmux
+vim
+python
+go
+go-tools
+llvm
+clang
+rustup
