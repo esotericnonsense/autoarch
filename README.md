@@ -1,15 +1,23 @@
----
-title: autoarch README.md
----
 # autoarch
 
-This is a basic script, utilizing and building upon
+`autoarch` provides basic scripts to perform an automated install of
+[Arch Linux](https://archlinux.org) in a virtual machine.
 
-[archlinux/archiso.git](https://git.archlinux.org/archiso.git)
+Main git repository: <https://git.esotericnonsense.com/pub/autoarch.git>
 
-to perform an automated install of archlinux in a virtual machine.
+Sourcehut:           <https://git.sr.ht/~esotericnonsense/autoarch>
 
-# Usage
+GitLab:              <https://gitlab.com/esotericnonsense/autoarch.git>
+
+GitHub:              <https://github.com/esotericnonsense/autoarch.git>
+
+## Contact
+
+Daniel Edgecumbe (esotericnonsense)
+
+[autoarch@esotericnonsense.com](mailto:autoarch@esotericnonsense.com)
+
+## Usage
 
 To build the ISO, enter the `build` directory and run `sudo ./build.sh`.
 Root permissions are required in order for the correct permissions to be
@@ -32,5 +40,6 @@ at (e.g. `vda` by default) without confirmation prior to installation.
 Consider yourself warned.
 
 ## License
+
 `autoarch` is subject to the GNU GPLv2 only, contained in the document
 LICENSE.GPLv2 which should be distributed with the software.
