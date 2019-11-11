@@ -3,7 +3,7 @@ title: autoarch README.md
 ---
 # autoarch
 
-This is a basic script, adapted from
+This is a basic script, utilizing and building upon
 
 [archlinux/archiso.git](https://git.archlinux.org/archiso.git)
 
@@ -15,3 +15,7 @@ The created ISO will _completely erase_ the contents of the disk you point it
 at (e.g. `vda` by default) without confirmation prior to installation.
 
 Consider yourself warned.
+
+## License
+`autoarch` is subject to the GNU GPLv2 only, contained in the document
+LICENSE.GPLv2 which should be distributed with the software.
